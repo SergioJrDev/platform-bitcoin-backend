@@ -19,10 +19,28 @@ const userInfoSchema = new mongoose.Schema({
     nome: { type: String, required: true },
     sobrenome: { type: String, required: true },
     nascimento: { type: Date, required: true },
-    rg: { type: Number, required: true, min: 8, max: 10 },
-    cpf: { type: Number, required: true, min: 11, max: 14 },
+    rg: { type: Number, required: true, maxLength: 11, minLength: 8 },
+    cpf: { type: Number, required: true, maxLength: 14, minLength: 11 },
     address: userAddressSchema,
     bank: userBankSchema,
 })
 
 module.exports = restful.model('userInfoSchema', userInfoSchema)
+
+/*
+Modelo
+nome: Sérgio
+sobrenome: Antonio Macedo Junior
+nascimento: 10/07/1991
+rg: 484912562
+cpf: 411
+address.address: Av Alberto Byington
+address.number: 178
+address.complemento: Apto 10
+address.cep: 02127000
+address.bairro: Vila Maria
+address.estado: SP
+bank.name: Itau
+bank.ag: 0350
+bank.cc: 0971169
+*/

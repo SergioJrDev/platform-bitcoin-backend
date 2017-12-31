@@ -13,3 +13,11 @@ const historySchema = new mongoose.Schema({
 
 
 module.exports = restful.model('historySchema', historySchema)
+
+// userId:01
+// date:10/07/1991
+// userName:Sérgio Júnior
+// action:Depósito
+// value:1500
+// totalAmount:1820
+// status:APROVADO
