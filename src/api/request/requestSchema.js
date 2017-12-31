@@ -1,6 +1,6 @@
 const restful = require('node-restful'), mongoose = restful.mongoose;
 
-const historySchema = new mongoose.Schema({
+const requestSchema = new mongoose.Schema({
     userId: { type: Number, required: true },
     date: { type: Date, required: true },
     userName: { type: String, required: true },
@@ -12,7 +12,7 @@ const historySchema = new mongoose.Schema({
 })
 
 
-module.exports = restful.model('historySchema', historySchema)
+module.exports = restful.model('requestSchema', requestSchema)
 
 // userId:01
 // date:10/07/1991
