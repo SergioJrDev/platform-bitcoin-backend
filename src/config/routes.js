@@ -19,6 +19,6 @@ module.exports = function(server){
 
     server.use('/oapi', openApi)
     openApi.post('/login', authService.login)
-    // openApi.post('/signup', authService.signup)
-    // openApi.post('/validateToken', authService.validateToken)
+    openApi.post('/signup', authService.signup)
+    openApi.post('/validateToken', authService.validateToken)
 }

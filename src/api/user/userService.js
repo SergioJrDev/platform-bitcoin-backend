@@ -24,7 +24,7 @@ const login = (req, res, next) => {
     if (err) {
       return sendErrorsFromDB(res, err)
     } else if (user && bcrypt.compareSync(password, user.password)) {
-      const token = jwt.sign(user, env.authSecret, {
+      const token = jwt.sign(user.toObject(), env.authSecret, {
         expiresIn: "1 day"
       })
       const {
@@ -58,7 +58,7 @@ const signup = (req, res, next) => { 
   const name = req.body.name || '' 
   const email = req.body.email || '' 
   const password = req.body.password || '' 
-  const confirmPassword = req.body.confirm_password || '' 
+  const confirmPassword = req.body.repassword || '' 
   if (!email.match(emailRegex)) { 
     return res.status(400).send({
       errors: ['O e-mail informa está inválido']
@@ -79,23 +79,23 @@ const signup = (req, res, next) => { 
   } 
   User.findOne({
     email
-  }, (err, user) => { 
+  }, (err, user) => {
     if (err) { 
       return sendErrorsFromDB(res, err) 
-    } else if (user) { 
+    } else if (user) {
       return res.status(400).send({
         errors: ['Usuário já cadastrado.']
       }) 
-    } else { 
+    } else {
       const newUser = new User({
         name,
         email,
         password: passwordHash
       })
-      newUser.save(err => { 
+      newUser.save(err => {
         if (err) { 
           return sendErrorsFromDB(res, err) 
-        } else { 
+        } else {
           login(req, res, next) 
         } 
       }) 
