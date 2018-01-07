@@ -4,20 +4,19 @@ const requestSchema = new mongoose.Schema({
     userId: { type: Number, required: true },
     date: { type: Date, required: true },
     userName: { type: String, required: true },
-    action: { type: String, required: true },
+    action: { type: String, required: true, uppercase: true,
+      enum: ['SAQUE', 'INVESTIMENTO']},
     value: { type: Number, required: true, min: 0 },
-    totalAmount: { type: Number, required: true },
-    status: { type: String, required: true, uppercase: true,
-        enum: ['PENDENTE', 'NEGADO', 'APROVADO']}
+    status: { type: String, uppercase: true,
+        enum: ['NEGADO', 'APROVADO']}
 })
 
 
 module.exports = restful.model('requestSchema', requestSchema)
 
-// userId:01
+// userId:41149403837
 // date:10/07/1991
 // userName:Sérgio Júnior
-// action:Depósito
+// action:SAQUE
 // value:1500
-// totalAmount:1820
-// status:APROVADO
+// status:PENDENTE

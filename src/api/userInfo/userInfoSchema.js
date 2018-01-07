@@ -29,11 +29,11 @@ module.exports = restful.model('userInfoSchema', userInfoSchema)
 
 /*
 Modelo
-nome: Sérgio
-sobrenome: Antonio Macedo Junior
+nome: Natália
+sobrenome: Carolina Fazzolari
 nascimento: 10/07/1991
 rg: 484912562
-cpf: 411
+cpf: 49785578932
 address.address: Av Alberto Byington
 address.number: 178
 address.complemento: Apto 10
