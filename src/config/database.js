@@ -1,7 +1,8 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const url = process.env.MONGOLAB_URI || 'mongodb://localhost/platform'
 mongoose.Promise = global.Promise
 
-module.exports = mongoose.connect('mongodb://localhost/platform')
+module.exports = mongoose.connect(url, { userMongoClient: true })
 
 mongoose.Error.messages.general.required = "O campo '{PATH}' é obrigatório."
 mongoose.Error.messages.Number.min = "O valor mínimo do campo '{PATH}' é '{MIN}'."
