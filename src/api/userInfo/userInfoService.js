@@ -6,7 +6,7 @@ userInfoSchema.updateOptions({new: true, runValidators: true})
 userInfoSchema.route('search', (req, res, next) => {
   const query = req.query.user || ''
   userInfoSchema.find({nome: {$regex : ".*"+ query +".*", $options: 'i'}}, (err, data) => {
-    err ? console.log('error') : res.json(data)
+    err ? console.log('Error - Userinfo Search') : res.json(data)
   })
 })
 

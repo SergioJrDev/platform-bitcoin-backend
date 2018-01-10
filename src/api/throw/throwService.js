@@ -5,7 +5,7 @@ throwSchema.updateOptions({new: true, runValidators: true})
 
 throwSchema.route('search', (req, res, next) => {
     throwSchema.find({userId: req.query.user}, (err, data) => {
-        err ? console.log('error') : res.json(data);
+        err ? console.log('Error - Throw Search') : res.json(data);
     })
 })
 
