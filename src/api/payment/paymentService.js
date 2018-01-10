@@ -3,6 +3,7 @@ const errorHandler = require('./../../commons/errorHandler')
 
 paymentSchema.methods(['get', 'post', 'put', 'delete'])
 paymentSchema.updateOptions({new: true, runValidators: true})
+paymentSchema.after('post', errorHandler).after('put', errorHandler)
 
 paymentSchema.route('search', (req, res, next) => {
     paymentSchema.find({userId: req.query.user}, (err, data) => {
