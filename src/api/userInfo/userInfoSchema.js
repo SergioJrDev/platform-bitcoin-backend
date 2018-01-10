@@ -6,6 +6,11 @@ const userBankSchema = new mongoose.Schema({
     cc: { type: Number, required: true },
 })
 
+const userContactSchema = new mongoose.Schema({
+  email: { type: String, required: true },
+  phone: { type: Number, required: true },
+})
+
 const userAddressSchema = new mongoose.Schema({
     address: { type: String, required: true },
     number: { type: Number, required: true },
@@ -21,6 +26,7 @@ const userInfoSchema = new mongoose.Schema({
     nascimento: { type: Date, required: true },
     rg: { type: Number, required: true, maxLength: 11, minLength: 8 },
     cpf: { type: Number, required: true, maxLength: 14, minLength: 11 },
+    contact: userContactSchema,
     address: userAddressSchema,
     bank: userBankSchema,
 })
