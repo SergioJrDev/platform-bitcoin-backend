@@ -2,19 +2,19 @@ const restful = require('node-restful'), mongoose = restful.mongoose;
 
 const userBankSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    ag: { type: Number, required: true },
-    cc: { type: Number, required: true },
+    ag: { type: String, required: true },
+    cc: { type: String, required: true },
 })
 
 const userContactSchema = new mongoose.Schema({
   email: { type: String, required: true },
-  phone: { type: Number, required: true },
+  phone: { type: String, required: true },
 })
 
 const userAddressSchema = new mongoose.Schema({
     address: { type: String, required: true },
     number: { type: Number, required: true },
-    complemento: { type: String, required: true },
+    complemento: { type: String },
     cep: { type: String, required: true },
     bairro: { type: String, required: true },
     estado: { type: String, required: true },
