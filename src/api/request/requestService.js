@@ -1,7 +1,9 @@
 const requestSchema = require('./requestSchema')
+const errorHandler = require('./../../commons/errorHandler')
 
 requestSchema.methods(['get', 'post', 'put', 'delete'])
 requestSchema.updateOptions({new: true, runValidators: true})
+requestSchema.after('post', errorHandler).after('put', errorHandler)
 
 requestSchema.route('count', (req, res, next) => {
     requestSchema.count((error, value) => {

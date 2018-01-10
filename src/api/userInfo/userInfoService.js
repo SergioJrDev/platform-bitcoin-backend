@@ -1,4 +1,5 @@
 const userInfoSchema = require('./userInfoSchema')
+const errorHandler = require('./../../commons/errorHandler')
 
 userInfoSchema.methods(['get', 'post', 'put', 'delete'])
 userInfoSchema.updateOptions({new: true, runValidators: true})

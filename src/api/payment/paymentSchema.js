@@ -1,7 +1,7 @@
 const restful = require('node-restful')
 const mongoose = restful.mongoose
 
-const throwSchema = new mongoose.Schema({
+const paymentSchema = new mongoose.Schema({
     userId: { type: Number, required: true },
     userName: { type: String, required: true },
     data: { type: Date, required: true },
@@ -10,7 +10,7 @@ const throwSchema = new mongoose.Schema({
     totalAmount: { type: Number, required: false },
 })
 
-module.exports = restful.model('throwSchema', throwSchema)
+module.exports = restful.model('paymentSchema', paymentSchema)
 
 // userId: 41149403837
 // userName: Sérgio Junior
