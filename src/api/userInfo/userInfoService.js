@@ -18,5 +18,11 @@ userInfoSchema.route('searchbyemail', (req, res, next) => {
   })
 })
 
+userInfoSchema.route('searchid', (req, res, next) => {
+  userInfoSchema.findOne({email: req.query.email}, (err, data) => {
+      err ? console.log('Error - Request Search') : res.json({userId: data.cpf || null });
+  })
+})
+
 
 module.exports = userInfoSchema
