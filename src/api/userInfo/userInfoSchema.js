@@ -26,7 +26,8 @@ const userInfoSchema = new mongoose.Schema({
     nascimento: { type: Date, required: true },
     rg: { type: Number, required: true, maxLength: 11, minLength: 8 },
     cpf: { type: Number, required: true, maxLength: 14, minLength: 11 },
-    contact: userContactSchema,
+    email: { type: String, required: true },
+    phone: { type: String, required: true },
     address: userAddressSchema,
     bank: userBankSchema,
 })
