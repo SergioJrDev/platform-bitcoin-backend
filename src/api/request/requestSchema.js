@@ -1,15 +1,19 @@
-const restful = require('node-restful'), mongoose = restful.mongoose;
+const restful = require('node-restful');
+const mongoose = restful.mongoose;
+var Joigoose = require('joigoose')(mongoose);
+const Joi =  require('joi')
 
-const requestSchema = new mongoose.Schema({
-    userId: { type: Number, required: true },
-    date: { type: Date, required: true },
-    userName: { type: String, required: true },
-    action: { type: String, required: true, uppercase: true,
-      enum: ['SAQUE', 'INVESTIMENTO']},
-    value: { type: Number, required: true, min: 0 },
-    status: { type: String, uppercase: true,
-        enum: ['NEGADO', 'APROVADO']}
+const requestObject = Joi.object({
+    userId: Joi.string().required(),
+    email: Joi.string().required().email(),
+    date: Joi.date().required(),
+    userName: Joi.string().required(),
+    action: Joi.string().required().uppercase(),
+    value: Joi.number().required().min(0),
+    status: Joi.string().uppercase()
 })
+
+const requestSchema = new mongoose.Schema(Joigoose.convert(requestObject))
 
 
 module.exports = restful.model('requestSchema', requestSchema)
