@@ -18,9 +18,15 @@ userInfoSchema.route('searchbyemail', (req, res, next) => {
   })
 })
 
+userInfoSchema.route('isadmin', (req, res, next) => {
+  const admins = ['sergioamjr91@gmail.com']
+  res.json({ isAdmin: admins.includes(req.query.email)})
+})
+
 userInfoSchema.route('searchid', (req, res, next) => {
   userInfoSchema.findOne({email: req.query.email}, (err, data) => {
-      err ? console.log('Error - Request Search') : res.json({userId: data.cpf || null });
+      console.log(req.query.email, data)
+      err ? console.log('Error - Request Search') : res.json({userId: data.userId || null });
   })
 })
 
