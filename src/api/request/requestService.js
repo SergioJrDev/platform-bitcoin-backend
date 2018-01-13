@@ -12,7 +12,7 @@ requestSchema.route('count', (req, res, next) => {
 })
 
 requestSchema.route('search', (req, res, next) => {
-  requestSchema.find({userId: req.query.user}, (err, data) => {
+  requestSchema.find({email: req.query.user}, (err, data) => {
       err ? console.log('Error - Request Search') : res.json(data);
   })
 })

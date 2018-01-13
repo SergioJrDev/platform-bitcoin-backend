@@ -1,7 +1,8 @@
 const restful = require('node-restful'), mongoose = restful.mongoose;
+require('mongoose-type-email');
 
 const requestSchema = new mongoose.Schema({
-    userId: { type: Number, required: true },
+    email: { type: mongoose.SchemaTypes.Email, required: true },
     date: { type: Date, required: true },
     userName: { type: String, required: true },
     action: { type: String, required: true, uppercase: true,
@@ -14,9 +15,8 @@ const requestSchema = new mongoose.Schema({
 
 module.exports = restful.model('requestSchema', requestSchema)
 
-// userId:41149403837
+// email: sergioamjr91@gmail.com
 // date:10/07/1991
 // userName:Sérgio Júnior
 // action:SAQUE
 // value:1500
-// status:PENDENTE

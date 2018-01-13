@@ -1,13 +1,13 @@
 const restful = require('node-restful')
 const mongoose = restful.mongoose
+require('mongoose-type-email');
 
 const paymentSchema = new mongoose.Schema({
-    userId: { type: Number, required: true },
+    email: { type: mongoose.SchemaTypes.Email, required: true },
     userName: { type: String, required: true },
     data: { type: Date, required: true },
     tipo: { type: String, required: true, enum: ['INVESTIMENTO', 'SAQUE', 'RENDIMENTO'], uppercase: true},
     value: { type: Number, required: true },
-    totalAmount: { type: Number, required: false },
 })
 
 module.exports = restful.model('paymentSchema', paymentSchema)

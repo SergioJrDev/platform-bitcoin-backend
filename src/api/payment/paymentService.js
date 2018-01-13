@@ -6,7 +6,7 @@ paymentSchema.updateOptions({new: true, runValidators: true})
 paymentSchema.after('post', errorHandler).after('put', errorHandler)
 
 paymentSchema.route('search', (req, res, next) => {
-    paymentSchema.find({userId: req.query.user}, (err, data) => {
+    paymentSchema.find({email: req.query.user}, (err, data) => {
         err ? console.log('Error - payment Search') : res.json(data);
     })
 })
