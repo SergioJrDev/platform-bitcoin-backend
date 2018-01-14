@@ -9,7 +9,7 @@ const requestSchema = new mongoose.Schema({
       enum: ['SAQUE', 'INVESTIMENTO']},
     value: { type: Number, required: true, min: 0 },
     status: { type: String, uppercase: true,
-        enum: ['NEGADO', 'APROVADO']}
+        enum: ['NEGADO', 'APROVADO', 'PENDENTE']}
 })
 
 
