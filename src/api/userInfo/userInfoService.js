@@ -19,7 +19,7 @@ userInfoSchema.route('searchbyemail', (req, res, next) => {
 })
 
 userInfoSchema.route('isadmin', (req, res, next) => {
-  const admins = ['sergioamjr91@gmail.com']
+  const admins = ['sergioamjr91@gmail.com', 'admin@mcsintermediacoes.com.br']
   res.json({ isAdmin: admins.includes(req.query.email)})
 })
 
