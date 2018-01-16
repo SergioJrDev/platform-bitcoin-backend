@@ -12,7 +12,7 @@ module.exports = function(server){
 
     // URL base
     server.use('/api', protectedApi)
-    // protectedApi.use(auth)
+    protectedApi.use(auth)
     Request.register(protectedApi, '/request')
     UserInfo.register(protectedApi, '/userinfo')
     Payment.register(protectedApi, '/payment')
